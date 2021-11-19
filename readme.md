@@ -1,4 +1,4 @@
 # Data Scientist With Python
 
 Librerias
-- [Numpy]()
+- [Numpy](https://github.com/MayumyCH/data-scientist-with-python/blob/main/numpy.md)

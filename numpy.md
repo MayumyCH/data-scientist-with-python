@@ -5,6 +5,18 @@
 
 ## Cheat sheet
 
+
+### LISTA
+
+```python
+lista = [1.73, 1.68, 1.71, 1.89, 1.79] # Lista
+lista.shape # Fila,Columna
+
+type(lista) # Saber el TIPO de mi VARIABLE
+```
+
+### ARREGLO
+
 ```python
 lista = [1.73, 1.68, 1.71, 1.89, 1.79] # Lista
 lista.shape # Fila,Columna
@@ -96,6 +108,11 @@ np_array.shape = (3,5)   # Modifica original - Convierte de Array -> Matriz
 np_array.reshape = (3,5) # Copia de original - Convierte de Array -> Matriz
 # Numpy los ejes, axes, axis, y dimensiones son lo mismo
 
+```
+
+### MATRIZ
+
+```python
 # -- MATRIZ
 # -----------
 matriz=np.arange(0,15).reshape(3,5)
