@@ -85,6 +85,13 @@ np.sort(nArray, order = 'llave') # Ordenar el array
 # np.random.normal(loc:Media, scale:Standard desviation ,size:# muestras)
 arr_example = np.round(np.random.normal(1.75, 0.20, 5000),2)
 
+# OTRO MODO DE GENERAR ARRAY
+cabeceras = [ ('nombre', 'S10' ), ('edad', int) ]
+datos = [ ('Heydy', 10), ('Maria', 70), ('Javier', 42), ('Samuel', 15) ]
+
+usuarios = np.array(datos, dtype = cabeceras)
+np.sort(usuarios, order = 'edad' )
+
 # ALEATORIOS
 np.random.rand() # Un numero pseudoaleatorio entre (0;1)
 np.random.random(6) # Arreglo de tamanio 6 en el rango de [0,1]
@@ -127,4 +134,24 @@ matriz[1,[0,2,4]]
 matriz.ravel() # De una matriz a un arreglo unidimensional
 matriz.flatten() # COPIA !! retorna una copia arregla unidimensional
 
+```
+
+### ARCHIVOS - NUMPY
+```python
+nArray=np.arange(20)
+
+np.savetxt('./ejemplo.csv',nArray,delimiter=";") # Guardar en un archivo mi data
+np.loadtxt('./ejemplo.csv',delimiter=";") # Cargar mi data
+
+np.save('ejemplo.npy',nArray) # genera un archivo binario
+np.load('ejemplo.npy')
+
+np.savez('ejemplo.npz',nArray) # Almacenar en archivos binarios comprimidos
+np.load('ejemplo.npz')['arr_0']
+
+# Archivos pocos convencionales
+# Para leer archivos de forma flexible
+# skip_header=1 <> Que la lectura inicie despues de la fila 1
+np.genfromtxt('./datasets/paises.txt', usecols=[1,2],skip_header=1, 
+              comments="#", delimiter=",") # , skip_footer=0
 ```
