@@ -58,11 +58,11 @@ users['calificaciones1'] = users.apply(lambda row: row['calificaciones1'] + 1 , 
 
 # EXTRAER DATOS DESDE UN ARCHIVO CSV
 # ------------------------
-userdf = pd.read_csv('./datasets/users.csv', delimiter=",", header=5)
+userdf = pd.read_csv('./datasets/users.csv', delimiter=",", header=5, index_col=0 )
 userdf = pd.read_csv('./datasets/users.csv', delimiter=",")
 paisesdf = pd.read_csv('./datasets/paises.csv', 
                        usecols=['pais','poblacion','long','lat'],
-                      na_values=['N/S'])
+                      na_values=['N/S'],index_col='id')
 paisesdf.head(3)
 paisesdf.tail(3)
 # ------------------------

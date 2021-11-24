@@ -13,6 +13,12 @@ lista = [1.73, 1.68, 1.71, 1.89, 1.79] # Lista
 lista.shape # Fila,Columna
 
 type(lista) # Saber el TIPO de mi VARIABLE
+
+# Agregar valor a la lista
+lista.append(10)
+
+# Remover valor a la lista
+lista.remove(1.68)
 ```
 
 ### ARREGLO
@@ -53,8 +59,11 @@ nArray = np.delete(nArray,5) # Eliminar (array, posicion)
 np.array([0,3,6],dtype=np.float32) # Mas recomendable
 # np.array([0,3,6],dtype='i')
 np.array([0,3,6],dtype=np.int32) # Mas recomendable
+np.array([0,3,6],dtype=np.uint) # Entero sin signo
 # np.array([0,1,0],dtype='?')
 np.array([0,1,0],dtype=np.bool) # Mas recomendable
+np.array([0,1,0],dtype=np.str) # Mas recomendable
+np.array([1,2,0,4,5,'6'],dtype=np.complex) 
 
 # CREAR ARREGLO
 np.arange(0,10) # RANGO (Nro INICIO, Nro FIN)
@@ -63,6 +72,7 @@ np.linspace(3, 10, 5) # (Nro INICIO, Nro FIN, PARTICION)
 
 np.zeros(5) # Arreglo unidimensional - 5 ceros
 np.ones((4, 5),dtype=np.int32) # Arreglo bidimensional de 1's (fila, columna)
+np.empty(10, dtype=np.int) # Crear arreglo con valores cualquiera
 np.full((3,5), 10) # [(fila, columna), nro] := Crear un Arreglo bidimensional de 10's
 np.diag([1,7,3]) # Matriz diagonal con valores 1,7,3
 
