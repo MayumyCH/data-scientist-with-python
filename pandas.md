@@ -49,6 +49,9 @@ usuarios = {
 
 users = pd.DataFrame(usuarios,index=['a','b','c','d'],columns=['nombre','calificaciones'])
 
+# Ver la cantidad de NULOS por variable
+data.isna().sum().sort_values(ascending=False)
+
 users.columns = ['nombre1','calificaciones1']
 users.index = '1a','2b','3c','4d'
 users.rename(columns={'nombre1':'nameHM'})
