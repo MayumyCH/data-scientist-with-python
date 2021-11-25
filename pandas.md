@@ -94,6 +94,26 @@ df.B['b'] = 50 # Valor especifico
 
 ```
 
+DATAFRAME FILTRO CON QUERY
+
+```python
+
+# data[data['age']>40]['name']
+data.query('age > 40')
+
+# data[(data['age']>40) & (data['gender'] == 'female')]
+data.query('age > 40 and gender == "female"')
+
+# data[~data['email'].str.endswith('@example.com')]
+data.query('~email.str.contains("@example.com")')
+
+# data[(data['country'].isin(["Germany","Finland","Canada"]))].count()
+data.query('country in ("Germany","Finland","Canada")')
+
+# data[(data['gender'] == 'female') & (data['country']== "Germany")]
+data.query('gender == "female" and country == "Germany" ')
+```
+
 GUARDAR ARCHIVOS .CSV
 
 ```python
@@ -168,5 +188,15 @@ fruitdf.groupby('nombre').filter(lambda fruta: fruta.cantidad.sum() > 10
                                 ).groupby('nombre').cantidad.sum()
 
 # Filtro + agrupacion
-fruitdf[fruitdf.nombre == 'Manzana'].groupby('color').cantidad.sum()                                
+fruitdf[fruitdf.nombre == 'Manzana'].groupby('color').cantidad.sum() 
+
+# Agrupar por columna y sacar conteo
+data.groupby('gender')['gender'].count()
+data.value_counts(data['gender']) 
+data.groupby('gender').agg({'gender':'count'}) 
+data.groupby('gender')['gender'].agg('count')
+
+# Filtros + agrupar + ordenar
+data[data['gender']=='female'].groupby('country')['country'].count(
+).sort_values(ascending=False).head(3)
 ```
