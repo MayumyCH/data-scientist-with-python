@@ -198,6 +198,7 @@ data.groupby('gender')['gender'].count()
 data.value_counts(data['gender']) 
 data.groupby('gender').agg({'gender':'count'}) 
 data.groupby('gender')['gender'].agg('count')
+data.groupby('country').agg({'age': ['mean', 'max', 'count']})
 
 # Filtros + agrupar + ordenar
 data[data['gender']=='female'].groupby('country')['country'].count(
