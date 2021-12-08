@@ -53,6 +53,8 @@ users.columns = ['nombre1','calificaciones1']
 users.index = '1a','2b','3c','4d'
 users.rename(columns={'nombre1':'nameHM'})
 
+len(dataGames['Developer'].value_counts())
+
 # Aplicar una funcion a una columna en especifico
 users['calificaciones1'] = users.apply(lambda row: row['calificaciones1'] + 1 , axis=1) #axis = 1 <> filas
 
@@ -92,6 +94,11 @@ df.drop('b', axis=0) # axis=0 <> Fila
 df['B']=10,20,30,40 # Columnas
 df.B['b'] = 50 # Valor especifico
 
+# Convertir Tipo de Variable
+df["count"].dtype
+change = pd.to_numeric(df["count"])
+change = df["count"].astype('float')
+change = df["count"].apply(lambda x: float(x))
 ```
 
 DATAFRAME FILTRO CON QUERY
@@ -161,6 +168,11 @@ df.iloc[0:4,1:3]
 df.iloc[0:4,[0,2]]
 ```
 
+DATE TIME
+```python
+df["fechaM"] = df["fecha"].apply(lambda x:datetime.strptime(x.replace('_',''),'%d.%m.%Y').date())
+```
+
 AGRUPAMIENTO
 
 ```python
@@ -176,6 +188,9 @@ fruitdf = pd.DataFrame(frutas)
 
 fruitdf.groupby('nombre')
 fruitdf.groupby('nombre').cantidad.sum()
+
+# calcular porcentajes
+fruitdf["variacion"] = fruitdf.precio.pct_change()
 
 # to_frame <> Crear un new dataframe
 fruitdf.groupby('nombre').cantidad.sum().to_frame('cantidad')
